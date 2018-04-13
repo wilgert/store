@@ -50,16 +50,15 @@ export class AppComponent {
   @Select(TodoState.pandas) pandas$: Observable<string[]>;
   @Select(TodosState.pizza) pizza$: Observable<any>;
 
-
   allExtras = [
-    {name: 'cheese', selected: false},
-    {name: 'mushrooms', selected: false},
-    {name: 'olives', selected: false}
+    { name: 'cheese', selected: false },
+    { name: 'mushrooms', selected: false },
+    { name: 'olives', selected: false }
   ];
 
   pizzaForm = this.formBuilder.group({
     toppings: [''],
-    crust: [{value: 'thin', disabled: true}],
+    crust: [{ value: 'thin', disabled: true }],
     extras: this.createExtras()
   });
 

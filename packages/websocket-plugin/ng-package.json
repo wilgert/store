@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../builds/websocket-plugin",
+  "dest": "../../dist/websocket-plugin",
   "lib": {
     "flatModuleFile": "ngxs-websocket-plugin",
     "entryFile": "index.ts",

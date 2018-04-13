@@ -66,22 +66,32 @@ export class TodosState {
   setPrefix({ getState, setState, patchState }) {
     const state = getState();
     const pizza1 = state.pizza.model.toppings;
-    patchState({ pizza: { model: {
-      toppings: 'Mr. ' + pizza1
-    } } });
+    patchState({
+      pizza: {
+        model: {
+          toppings: 'Mr. ' + pizza1
+        }
+      }
+    });
   }
 
   @Action(LoadData)
-  loadData({ patchState}) {
+  loadData({ patchState }) {
     const data = {
       toppings: 'pineapple',
       crust: 'medium',
       extras: [false, false, true]
     };
-    return of(data).pipe(tap((vals: any) => {
-      patchState( { pizza: { model: {
-        ...vals
-      }}});
-    }));
+    return of(data).pipe(
+      tap((vals: any) => {
+        patchState({
+          pizza: {
+            model: {
+              ...vals
+            }
+          }
+        });
+      })
+    );
   }
 }

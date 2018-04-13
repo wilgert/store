@@ -1,0 +1,25 @@
+commit 6584682c53ef5002b2cd8b24085b704c0ec69697
+Author: Leon Radley
+Date: Fri, 13 Apr 2018 22:57:11 +0200
+
+    patch
+
+
+diff --git lib/ngc/transform-source-files.js lib/ngc/transform-source-files.js
+index 5900e23..aa38696 100644
+--- lib/ngc/transform-source-files.js
++++ lib/ngc/transform-source-files.js
+@@ -13,6 +13,13 @@ function transformSourceFiles(source, transformers) {
+     else {
+         // Apply initial typescript transformation to initial sources from TsConfig
+         const tsConfig = source;
++
++        // @hack we hack ng-packagrs path variable
++        tsConfig.options.paths = {
++            ...tsConfig.options.paths,
++            ...{ '@ngxs/*': [`${tsConfig.options.rootDir}/../../dist/*`] }
++        };
++
+         const compilerHost = ng.createCompilerHost({
+             options: tsConfig.options
+         });

@@ -3,7 +3,10 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@ngxs/*": ["packages/*"]
+      "@ngxs/*": [
+        "dist/*",
+        "packages/*"
+      ]
     },
     "noUnusedLocals": true,
     "sourceMap": true,
