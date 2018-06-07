@@ -170,7 +170,7 @@ export class StateFactory {
               result = from(result);
             }
 
-            if (result instanceof Observable) {
+            if (result instanceof Observable || (result && result.subscribe)) {
               result = result.pipe(
                 actionMeta.options.cancelUncompleted
                   ? takeUntil(actions$.pipe(ofActionDispatched(action)))
